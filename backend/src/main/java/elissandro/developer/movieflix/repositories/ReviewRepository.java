@@ -1,8 +1,8 @@
-package elissandro.example.movieflix.repositories;
+package elissandro.developer.movieflix.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import elissandro.example.movieflix.entities.Review;
+import elissandro.developer.movieflix.entities.Review;
 
 public interface ReviewRepository extends JpaRepository<Review, Long>{
 

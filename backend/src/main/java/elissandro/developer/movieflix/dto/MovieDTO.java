@@ -1,11 +1,11 @@
-package elissandro.example.movieflix.dto;
+package elissandro.developer.movieflix.dto;
 
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-import elissandro.example.movieflix.entities.Movie;
-import elissandro.example.movieflix.entities.Review;
+import elissandro.developer.movieflix.entities.Movie;
+import elissandro.developer.movieflix.entities.Review;
 
 public class MovieDTO implements Serializable{
 	private static final long serialVersionUID = 1L;

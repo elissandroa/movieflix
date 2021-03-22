@@ -1,6 +1,6 @@
-package elissandro.example.movieflix.dto;
+package elissandro.developer.movieflix.dto;
 
-import elissandro.example.movieflix.entities.Review;
+import elissandro.developer.movieflix.entities.Review;
 
 public class ReviewDTO {
 	

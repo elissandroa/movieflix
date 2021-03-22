@@ -1,4 +1,4 @@
-package elissandro.example.movieflix.entities;
+package elissandro.developer.movieflix.entities;
 
 import java.io.Serializable;
 import java.util.HashSet;
