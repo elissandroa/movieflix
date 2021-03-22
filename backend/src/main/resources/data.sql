@@ -9,3 +9,9 @@ INSERT INTO TB_MOVIE (TITLE, SUB_TITLE, YEAR, IMG_URL, SYNOPSIS, GENRE_ID) VALUE
 INSERT INTO TB_MOVIE (TITLE, SUB_TITLE, YEAR, IMG_URL, SYNOPSIS, GENRE_ID) VALUES ('Filme 1', 'Subtitulo filme 1', 2020, 'http://', 'synopsis of the movie', 1);
 INSERT INTO TB_MOVIE (TITLE, SUB_TITLE, YEAR, IMG_URL, SYNOPSIS, GENRE_ID) VALUES ('Filme 1', 'Subtitulo filme 1', 2020, 'http://', 'synopsis of the movie', 1);
 INSERT INTO TB_MOVIE (TITLE, SUB_TITLE, YEAR, IMG_URL, SYNOPSIS, GENRE_ID) VALUES ('Filme 1', 'Subtitulo filme 1', 2020, 'http://', 'synopsis of the movie', 1);
+
+
+INSERT INTO TB_REVIEW (TEXT, MOVIE_ID) VALUES ('Filme muito bom', 1);
+INSERT INTO TB_REVIEW (TEXT, MOVIE_ID) VALUES ('Filme muito bom', 1);
+INSERT INTO TB_REVIEW (TEXT, MOVIE_ID) VALUES ('Filme muito bom', 1);
+INSERT INTO TB_REVIEW (TEXT, MOVIE_ID) VALUES ('Filme muito bom', 1);
