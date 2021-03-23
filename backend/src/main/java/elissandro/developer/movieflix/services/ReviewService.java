@@ -43,7 +43,7 @@ public class ReviewService {
 	@Transactional(readOnly = true)
 	public ReviewDTO findById(Long id) {
 		Optional<Review> obj = repository.findById(id);
-		Review entity = obj.get();
+		Review entity = obj.orElseThrow(() -> new ResourceNotFoundException("Entity not found "));
 		return new ReviewDTO(entity);
 	}
 	

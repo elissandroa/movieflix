@@ -2,6 +2,8 @@ package elissandro.developer.movieflix.resources;
 
 import java.net.URI;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -51,14 +53,14 @@ public class GenreResource {
 	}
 	
 	@PostMapping
-	public ResponseEntity<GenreDTO>insert(@RequestBody GenreDTO dto){
+	public ResponseEntity<GenreDTO>insert(@Valid @RequestBody GenreDTO dto){
 		dto = service.insert(dto);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();		
 		return ResponseEntity.created(uri).body(dto);
 	}
 	
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<GenreDTO>update(@PathVariable Long id, @RequestBody GenreDTO dto){
+	public ResponseEntity<GenreDTO>update(@PathVariable Long id,@Valid @RequestBody GenreDTO dto){
 		dto = service.update(id, dto);
 		return ResponseEntity.ok().body(dto);
 	}
