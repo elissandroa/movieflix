@@ -17,7 +17,7 @@ public class MovieDTO implements Serializable{
 	private String synopsis;
 	
 	private Set<ReviewDTO> reviews = new HashSet<>();
-	
+			
 	public MovieDTO() {
 	}
 
@@ -38,7 +38,7 @@ public class MovieDTO implements Serializable{
 		imgUrl = entity.getImgUrl();
 		synopsis = entity.getSynopsis();
 		entity.getReviews().forEach(review -> this.reviews.add(new ReviewDTO(review)));
-	}
+		}
 
 	public long getId() {
 		return id;

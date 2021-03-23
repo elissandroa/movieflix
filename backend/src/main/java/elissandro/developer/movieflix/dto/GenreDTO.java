@@ -5,7 +5,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 import elissandro.developer.movieflix.entities.Genre;
-import elissandro.developer.movieflix.entities.Movie;
 
 public class GenreDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
