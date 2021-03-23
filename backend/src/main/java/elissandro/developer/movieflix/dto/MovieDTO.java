@@ -5,7 +5,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 import elissandro.developer.movieflix.entities.Movie;
-import elissandro.developer.movieflix.entities.Review;
 
 public class MovieDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -17,7 +16,7 @@ public class MovieDTO implements Serializable{
 	private String imgUrl;
 	private String synopsis;
 	
-	private Set<Review> reviews = new HashSet<>();
+	private Set<ReviewDTO> reviews = new HashSet<>();
 	
 	public MovieDTO() {
 	}
@@ -38,6 +37,7 @@ public class MovieDTO implements Serializable{
 		year = entity.getYear();
 		imgUrl = entity.getImgUrl();
 		synopsis = entity.getSynopsis();
+		entity.getReviews().forEach(review -> this.reviews.add(new ReviewDTO(review)));
 	}
 
 	public long getId() {
@@ -88,7 +88,7 @@ public class MovieDTO implements Serializable{
 		this.synopsis = synopsis;
 	}
 
-	public Set<Review> getReviews() {
+	public Set<ReviewDTO> getReviews() {
 		return reviews;
 	}
 }
