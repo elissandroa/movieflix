@@ -7,8 +7,11 @@ public class ReviewDTO {
 	private Long id;
 	private String text;
 	private Long movieId;
+	private Long userId;
 	
 	private MovieDTO movie;
+	
+	private UserDTO user;
 	
 	public ReviewDTO() {
 	}
@@ -17,12 +20,14 @@ public class ReviewDTO {
 		this.id = id;
 		this.text = text;
 		this.movieId = movie.getId();
+		this.userId = user.getId();
 	}
 	
 	public ReviewDTO(Review entity) {
 		id = entity.getId();
 		this.text = entity.getText();
 		this.id = entity.getMovie().getId();
+		this.id = entity.getUser().getId();
 	}
 
 	public Long getId() {
@@ -55,5 +60,21 @@ public class ReviewDTO {
 
 	public void setMovieId(Long movieId) {
 		this.movieId = movieId;
+	}
+
+	public UserDTO getUser() {
+		return user;
+	}
+
+	public void setUser(UserDTO user) {
+		this.user = user;
+	}
+
+	public Long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
 	}
 }

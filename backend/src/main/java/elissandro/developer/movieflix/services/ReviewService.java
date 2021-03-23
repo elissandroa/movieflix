@@ -15,8 +15,10 @@ import org.springframework.transaction.annotation.Transactional;
 import elissandro.developer.movieflix.dto.ReviewDTO;
 import elissandro.developer.movieflix.entities.Movie;
 import elissandro.developer.movieflix.entities.Review;
+import elissandro.developer.movieflix.entities.User;
 import elissandro.developer.movieflix.repositories.MovieRepository;
 import elissandro.developer.movieflix.repositories.ReviewRepository;
+import elissandro.developer.movieflix.repositories.UserRepository;
 import elissandro.developer.movieflix.services.exceptions.DatabaseException;
 import elissandro.developer.movieflix.services.exceptions.ResourceNotFoundException;
 
@@ -24,10 +26,13 @@ import elissandro.developer.movieflix.services.exceptions.ResourceNotFoundExcept
 public class ReviewService {
 	
 	@Autowired 
-	ReviewRepository repository;
+	private ReviewRepository repository;
 	
 	@Autowired 
-	MovieRepository movieRepository;
+	private MovieRepository movieRepository;
+	
+	@Autowired
+	private UserRepository userRepository;
 	
 	@Transactional(readOnly = true)	
 	public List<ReviewDTO> findAll(){
@@ -45,7 +50,8 @@ public class ReviewService {
 	@Transactional
 	public ReviewDTO insert(ReviewDTO dto) {
 		Movie movie = movieRepository.getOne(dto.getMovieId());
-		Review review = new Review(null, dto.getText(), movie);
+		User user = userRepository.getOne(dto.getUserId());
+		Review review = new Review(null, dto.getText(), movie, user );
 		review = repository.save(review);
 		return new ReviewDTO(review);
 	}
@@ -80,5 +86,6 @@ public class ReviewService {
 	private void copyDtoToEntity(ReviewDTO dto, Review entity) {
 		entity.setText(dto.getText());
 		entity.setMovie(movieRepository.getOne(dto.getMovieId()));
+		entity.setUser(userRepository.getOne(dto.getUserId()));
 	}
 }
