@@ -13,7 +13,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import elissandro.developer.movieflix.dto.ReviewDTO;
+import elissandro.developer.movieflix.entities.Movie;
 import elissandro.developer.movieflix.entities.Review;
+import elissandro.developer.movieflix.repositories.MovieRepository;
 import elissandro.developer.movieflix.repositories.ReviewRepository;
 import elissandro.developer.movieflix.services.exceptions.DatabaseException;
 import elissandro.developer.movieflix.services.exceptions.ResourceNotFoundException;
@@ -21,7 +23,11 @@ import elissandro.developer.movieflix.services.exceptions.ResourceNotFoundExcept
 @Service
 public class ReviewService {
 	
-	@Autowired ReviewRepository repository;
+	@Autowired 
+	ReviewRepository repository;
+	
+	@Autowired 
+	MovieRepository movieRepository;
 	
 	@Transactional(readOnly = true)	
 	public List<ReviewDTO> findAll(){
@@ -38,10 +44,10 @@ public class ReviewService {
 	
 	@Transactional
 	public ReviewDTO insert(ReviewDTO dto) {
-		Review entity = new Review();
-		copyDtoToEntity(dto, entity);
-		entity = repository.save(entity);
-		return new ReviewDTO(entity);
+		Movie movie = movieRepository.getOne(dto.getMovieId());
+		Review review = new Review(null, dto.getText(), movie);
+		review = repository.save(review);
+		return new ReviewDTO(review);
 	}
 	
 	@Transactional
@@ -73,5 +79,6 @@ public class ReviewService {
 	
 	private void copyDtoToEntity(ReviewDTO dto, Review entity) {
 		entity.setText(dto.getText());
+		entity.setMovie(movieRepository.getOne(dto.getMovieId()));
 	}
 }

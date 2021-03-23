@@ -64,7 +64,7 @@ public class MovieResource {
 	}
 	
 	@DeleteMapping(value = "/{id}")
-	public ResponseEntity<MovieDTO>update(@PathVariable Long id){
+	public ResponseEntity<MovieDTO>delete(@PathVariable Long id){
 		service.delete(id);
 		return ResponseEntity.noContent().build();
 	}

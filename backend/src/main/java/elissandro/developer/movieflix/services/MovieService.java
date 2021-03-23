@@ -13,7 +13,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import elissandro.developer.movieflix.dto.MovieDTO;
+import elissandro.developer.movieflix.entities.Genre;
 import elissandro.developer.movieflix.entities.Movie;
+import elissandro.developer.movieflix.repositories.GenreRepository;
 import elissandro.developer.movieflix.repositories.MovieRepository;
 import elissandro.developer.movieflix.services.exceptions.DatabaseException;
 import elissandro.developer.movieflix.services.exceptions.ResourceNotFoundException;
@@ -21,8 +23,13 @@ import elissandro.developer.movieflix.services.exceptions.ResourceNotFoundExcept
 @Service
 public class MovieService {
 	
-	@Autowired MovieRepository repository;
+	@Autowired 
+	private MovieRepository repository;
 	
+	@Autowired
+	private GenreRepository genreRepository;
+	
+		
 	@Transactional(readOnly = true)	
 	public Page<MovieDTO> findAllPaged(PageRequest pageRequest){
 			Page<Movie> list = repository.findAll(pageRequest);
@@ -38,10 +45,11 @@ public class MovieService {
 	
 	@Transactional
 	public MovieDTO insert(MovieDTO dto) {
-		Movie entity = new Movie();
-		copyDtoToEntity(dto, entity);
-		entity = repository.save(entity);
-		return new MovieDTO(entity);
+		Genre genre = genreRepository.getOne(dto.getGenreId());
+		Movie movie = new Movie(null, dto.getImgUrl(), dto.getSubTitle(), 
+				dto.getYear(),dto.getTitle() ,dto.getSynopsis(), genre);
+		movie = repository.save(movie);
+		return new MovieDTO(movie);
 	}
 	
 	@Transactional
@@ -77,5 +85,6 @@ public class MovieService {
 		entity.setSynopsis(dto.getSynopsis());
 		entity.setTitle(dto.getTitle());
 		entity.setYear(dto.getYear());
+		entity.setGenre(genreRepository.getOne(dto.getGenreId()));
 	}
 }

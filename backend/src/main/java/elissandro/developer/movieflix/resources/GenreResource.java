@@ -64,7 +64,7 @@ public class GenreResource {
 	}
 	
 	@DeleteMapping(value = "/{id}")
-	public ResponseEntity<GenreDTO>update(@PathVariable Long id){
+	public ResponseEntity<GenreDTO>delete(@PathVariable Long id){
 		service.delete(id);
 		return ResponseEntity.noContent().build();
 	}

@@ -52,7 +52,7 @@ public class ReviewResource {
 	}
 	
 	@DeleteMapping(value = "/{id}")
-	public ResponseEntity<ReviewDTO>update(@PathVariable Long id){
+	public ResponseEntity<ReviewDTO>delete(@PathVariable Long id){
 		service.delete(id);
 		return ResponseEntity.noContent().build();
 	}

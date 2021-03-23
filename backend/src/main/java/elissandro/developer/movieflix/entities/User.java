@@ -1,38 +1,25 @@
 package elissandro.developer.movieflix.entities;
 
-import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-@Entity
-@Table(name = "tb_genre")
-public class Genre implements Serializable{
-	private static final long serialVersionUID = 1L;
+public class User {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
+	private String email;
+	private String password;
 	
-	@JsonIgnore
-	@OneToMany(mappedBy = "genre")
-	private Set<Movie> movies = new HashSet<>();
+	private Set<Role> roles = new HashSet<>();
 	
-	public Genre() {
+	public User() {
 	}
 
-	public Genre(Long id, String name) {
+	public User(Long id, String name, String email, String password) {
 		this.id = id;
 		this.name = name;
+		this.email = email;
+		this.password = password;
 	}
 
 	public Long getId() {
@@ -49,10 +36,26 @@ public class Genre implements Serializable{
 
 	public void setName(String name) {
 		this.name = name;
-	} 
-	
-	public Set<Movie> getMovies() {
-		return movies;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public Set<Role> getRoles() {
+		return roles;
 	}
 
 	@Override
@@ -71,7 +74,7 @@ public class Genre implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Genre other = (Genre) obj;
+		User other = (User) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
