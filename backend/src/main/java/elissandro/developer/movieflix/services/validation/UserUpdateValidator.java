@@ -1,18 +1,25 @@
 package elissandro.developer.movieflix.services.validation;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.servlet.HandlerMapping;
 
-import elissandro.developer.movieflix.dto.UserInsertDTO;
+import elissandro.developer.movieflix.dto.UserUpdateDTO;
 import elissandro.developer.movieflix.entities.User;
 import elissandro.developer.movieflix.repositories.UserRepository;
 import elissandro.developer.movieflix.resources.exceptions.FieldMessage;
 
-public class UserInsertValidator implements ConstraintValidator<UserUpdateValid, UserInsertDTO> {
+public class UserUpdateValidator implements ConstraintValidator<UserUpdateValid, UserUpdateDTO> {
+	
+	@Autowired
+	private HttpServletRequest request;
+			
 	@Autowired
 	private UserRepository repository;
 	
@@ -21,13 +28,17 @@ public class UserInsertValidator implements ConstraintValidator<UserUpdateValid,
 	}
 
 	@Override
-	public boolean isValid(UserInsertDTO dto, ConstraintValidatorContext context) {
+	public boolean isValid(UserUpdateDTO dto, ConstraintValidatorContext context) {
+		
+		@SuppressWarnings("unchecked")
+		var  uriVars = (Map<String, String>)request.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE);
+		long userId = Long.parseLong(uriVars.get("id"));
 		
 		List<FieldMessage> list = new ArrayList<>();
 		
 		// Coloque aqui seus testes de validação, acrescentando objetos FieldMessage à lista
 		User user = repository.findByEmail(dto.getEmail());
-		if(user != null) {
+		if(user != null && userId != user.getId()) {
 			list.add(new FieldMessage("email","Email já existe"));
 		}
 		

@@ -19,6 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 import elissandro.developer.movieflix.dto.RoleDTO;
 import elissandro.developer.movieflix.dto.UserDTO;
 import elissandro.developer.movieflix.dto.UserInsertDTO;
+import elissandro.developer.movieflix.dto.UserUpdateDTO;
 import elissandro.developer.movieflix.entities.Role;
 import elissandro.developer.movieflix.entities.User;
 import elissandro.developer.movieflix.repositories.RoleRepository;
@@ -62,7 +63,7 @@ public class UserService implements UserDetailsService {
 	}
 	
 	@Transactional
-	public UserDTO update(Long id, UserDTO dto) {
+	public UserDTO update(Long id, UserUpdateDTO dto) {
 		try {
 			User entity = repository.getOne(id);
 			copyDtoToEntity(dto, entity);
