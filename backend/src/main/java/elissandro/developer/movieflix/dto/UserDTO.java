@@ -20,8 +20,6 @@ public class UserDTO implements Serializable {
 	
 	Set<RoleDTO> roles = new HashSet<>();
 	
-	private Set<ReviewDTO> reviews  = new HashSet<>();
-	
 	public UserDTO() {
 	}
 
@@ -64,9 +62,5 @@ public class UserDTO implements Serializable {
 
 	public Set<RoleDTO> getRoles() {
 		return roles;
-	}
-
-	public Set<ReviewDTO> getReviews() {
-		return reviews;
 	}
 }

@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-import elissandro.developer.movieflix.entities.Genre;
 import elissandro.developer.movieflix.entities.Movie;
 
 public class MovieDTO implements Serializable{
@@ -16,9 +15,10 @@ public class MovieDTO implements Serializable{
 	private Integer year;
 	private String imgUrl;
 	private String synopsis;
+	
 	private Long genreId;
 	
-	private Genre genre;
+	
 		
 	private Set<ReviewDTO> reviews = new HashSet<>();
 	
@@ -33,7 +33,7 @@ public class MovieDTO implements Serializable{
 		this.year = year;
 		this.imgUrl = imgUrl;
 		this.synopsis = synopsis;
-		this.genreId = genre.getId();
+	
 		}
 	
 	public MovieDTO(Movie entity) {
@@ -106,11 +106,4 @@ public class MovieDTO implements Serializable{
 		this.genreId = genreId;
 	}
 
-	public Genre getGenre() {
-		return genre;
-	}
-
-	public void setGenre(Genre genre) {
-		this.genre = genre;
-	}
 }

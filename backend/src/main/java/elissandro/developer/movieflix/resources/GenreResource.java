@@ -31,7 +31,7 @@ public class GenreResource {
 	private GenreService service;
 	
 	@GetMapping
-	public ResponseEntity<Page<GenreDTO>> findAll(
+	public ResponseEntity<Page<GenreDTO>> find(
 		@RequestParam(value = "page", defaultValue = "0") Integer page,
 		@RequestParam(value = "linesPerPage", defaultValue = "12")Integer linesPerPage,
 		@RequestParam(value = "direction", defaultValue = "ASC")String direction,
@@ -41,7 +41,7 @@ public class GenreResource {
 		
 		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
 		
-		Page<GenreDTO> list = service.findAllPaged(pageRequest);
+		Page<GenreDTO> list = service.find(pageRequest);
 		return ResponseEntity.ok().body(list);
 	}
 	

@@ -6,7 +6,6 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -16,12 +15,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 @Table(name = "tb_user")
 public class User implements UserDetails, Serializable {
@@ -33,6 +33,7 @@ public class User implements UserDetails, Serializable {
 	private String name;
 	@Column(unique = true)
 	private String email;
+	@JsonIgnore
 	private String password;
 	
 	
@@ -41,9 +42,6 @@ public class User implements UserDetails, Serializable {
 	joinColumns = @JoinColumn(name = "user_id"),
 	inverseJoinColumns = @JoinColumn(name ="role_id"))
 	private Set<Role> roles = new HashSet<>();
-	
-	@OneToMany(cascade = CascadeType.ALL , mappedBy = "user")
-	private Set<Review> reviews  = new HashSet<>();
 	
 	public User() {
 	}
@@ -89,10 +87,6 @@ public class User implements UserDetails, Serializable {
 
 	public Set<Role> getRoles() {
 		return roles;
-	}
-	
-	public Set<Review> getReviews() {
-		return reviews;
 	}
 
 	@Override

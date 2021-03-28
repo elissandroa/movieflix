@@ -34,6 +34,8 @@ public class ReviewService {
 	@Autowired
 	private UserRepository userRepository;
 	
+	
+	
 	@Transactional(readOnly = true)	
 	public List<ReviewDTO> findAll(){
 			List<Review> list = repository.findAll();
@@ -46,12 +48,13 @@ public class ReviewService {
 		Review entity = obj.orElseThrow(() -> new ResourceNotFoundException("Entity not found "));
 		return new ReviewDTO(entity);
 	}
+		
 	
 	@Transactional
 	public ReviewDTO insert(ReviewDTO dto) {
-		Movie movie = movieRepository.getOne(dto.getMovieId());
+		Movie movie = movieRepository.getOne(dto.getId());
 		User user = userRepository.getOne(dto.getUserId());
-		Review review = new Review(null, dto.getText(), movie, user );
+		Review review = new Review(null, dto.getText(), movie, user);
 		review = repository.save(review);
 		return new ReviewDTO(review);
 	}
@@ -85,7 +88,7 @@ public class ReviewService {
 	
 	private void copyDtoToEntity(ReviewDTO dto, Review entity) {
 		entity.setText(dto.getText());
-		entity.setMovie(movieRepository.getOne(dto.getMovieId()));
+		entity.setMovie(movieRepository.getOne(dto.getId()));
 		entity.setUser(userRepository.getOne(dto.getUserId()));
 	}
 }
