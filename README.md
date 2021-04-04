@@ -12,7 +12,7 @@ A aplicação consiste em um catálogo de filmes, onde os os usuários autentica
 ## Layout mobile
 ![Mobile 1](https://github.com/elissandroa/assets/blob/main/assets/movieflix-login-iphon1.png) ![Mobile 2](https://github.com/elissandroa/assets/blob/main/assets/movieflix-iphonelogin.png)
 
-![Mobile 3](https://github.com/elissandroa/assets/blob/main/assets/movieflix-iphone-listagemdefilmes.png) ![Mobile 4](https://github.com/elissandroa/assets/blob/main/assets/movieflix-iphone-listagemdefilmes.png)
+![Mobile 3](https://github.com/elissandroa/assets/blob/main/assets/movieflix-iphone-listagemdefilmes.png) ![Mobile 4](https://github.com/elissandroa/assets/blob/main/assets/movieflix-iphonedetalhesdofilme.png)
 
 ## Layout web
 ![Web 1](https://github.com/elissandroa/assets/blob/main/assets/web1.png)
