@@ -9,6 +9,6 @@ import elissandro.developer.movieflix.entities.Genre;
 import elissandro.developer.movieflix.entities.Movie;
 
 public interface MovieRepository extends JpaRepository<Movie, Long>{
-	@Query("SELECT obj FROM Movie obj WHERE :genre IS NULL OR obj.genre = :genre ORDER BY title")
+	@Query("SELECT obj FROM Movie obj WHERE :genre IS NULL OR obj.genre = :genre ORDER BY TITLE")
 	Page<Movie> find(Genre genre, Pageable pageable);
 }
