@@ -22,7 +22,7 @@ A aplicação consiste em um catálogo de filmes, onde os os usuários autentica
 
 
 ## Modelo conceitual
-![Modelo Conceitual](https://github.com/elissandroa/assets/blob/main/assets/movieflis/modeloconceitualmovieflix.png)
+![Modelo Conceitual](https://github.com/elissandroa/assets/blob/main/assets/movieflix/modeloconceitualmovieflix.png)
 
 # Tecnologias utilizadas
 ## Back end
