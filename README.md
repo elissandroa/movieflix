@@ -23,7 +23,7 @@ A aplicação consiste em um catálogo de filmes, onde os os usuários autentica
 
 
 ## Modelo conceitual
-![Modelo Conceitual](https://github.com/elissandroa/assets/blob/main/assets/modelo-conceitual.png)
+![Modelo Conceitual](https://github.com/elissandroa/assets/blob/main/assets/modeloconceitualmovieflix.png)
 
 # Tecnologias utilizadas
 ## Back end
@@ -31,6 +31,9 @@ A aplicação consiste em um catálogo de filmes, onde os os usuários autentica
 - Spring Boot
 - JPA / Hibernate
 - Maven
+- Oauth2
+- JWT Token
+- Swagger
 ## Front end
 - HTML / CSS / JS / TypeScript
 - ReactJS
@@ -49,7 +52,7 @@ Pré-requisitos: Java 11
 
 ```bash
 # clonar repositório
-git clone https://github.com/elissandroa/sdspesquisa.git
+git clone https://github.com/elissandroa/movieflix.git
 
 # entrar na pasta do projeto back end
 cd backend
@@ -63,7 +66,7 @@ Pré-requisitos: npm / yarn
 
 ```bash
 # clonar repositório
-git clone https://github.com/elissandroa/sdspesquisa.git
+git clone https://github.com/elissandroa/movieflix.git
 
 # entrar na pasta do projeto front end web
 cd front-web
