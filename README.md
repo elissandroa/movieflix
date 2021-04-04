@@ -1,5 +1,5 @@
 # MovieFlix Catálogo de filmes
-[![NPM](https://img.shields.io/npm/l/react)](https://github.com/elissandroa/sdspesquisa/blob/master/LICENSE) 
+[![NPM](https://img.shields.io/npm/l/react)](https://github.com/elissandroa/movieflix/blob/main/LICENSE) 
 
 # Sobre o projeto
 
