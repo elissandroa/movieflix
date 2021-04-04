@@ -9,6 +9,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -26,6 +27,7 @@ import elissandro.developer.movieflix.repositories.RoleRepository;
 import elissandro.developer.movieflix.repositories.UserRepository;
 import elissandro.developer.movieflix.services.exceptions.DatabaseException;
 import elissandro.developer.movieflix.services.exceptions.ResourceNotFoundException;
+import elissandro.developer.movieflix.services.exceptions.UnauthorizedException;
 
 @Service
 public class UserService implements UserDetailsService {
@@ -108,5 +110,14 @@ public class UserService implements UserDetailsService {
 			throw new UsernameNotFoundException("Email not found");
 		}
 		return user;
+	}
+	
+	public User authenticated() {
+		try {
+			String name = SecurityContextHolder.getContext().getAuthentication().getName();
+			return repository.findByEmail(name);
+		} catch (Exception e) {
+			throw new UnauthorizedException("Invalid user");
+		}
 	}
 }

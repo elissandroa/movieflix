@@ -26,13 +26,14 @@ public class MovieDTO implements Serializable{
 	public MovieDTO() {
 	}
 
-	public MovieDTO(long id, String title, String subTitle, Integer year, String imgUrl, String synopsis) {
+	public MovieDTO(long id, String title, String subTitle, Integer year, String imgUrl, String synopsis, Long genreId) {
 		this.id = id;
 		this.title = title;
 		this.subTitle = subTitle;
 		this.year = year;
 		this.imgUrl = imgUrl;
 		this.synopsis = synopsis;
+		this.genreId = genreId;
 	
 		}
 	
@@ -43,6 +44,7 @@ public class MovieDTO implements Serializable{
 		year = entity.getYear();
 		imgUrl = entity.getImgUrl();
 		synopsis = entity.getSynopsis();
+		genreId = entity.getGenre().getId();
 		entity.getReviews().forEach(review -> this.reviews.add(new ReviewDTO(review)));
 		}
 

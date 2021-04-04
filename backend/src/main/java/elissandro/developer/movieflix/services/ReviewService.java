@@ -18,7 +18,6 @@ import elissandro.developer.movieflix.entities.Review;
 import elissandro.developer.movieflix.entities.User;
 import elissandro.developer.movieflix.repositories.MovieRepository;
 import elissandro.developer.movieflix.repositories.ReviewRepository;
-import elissandro.developer.movieflix.repositories.UserRepository;
 import elissandro.developer.movieflix.services.exceptions.DatabaseException;
 import elissandro.developer.movieflix.services.exceptions.ResourceNotFoundException;
 
@@ -32,7 +31,7 @@ public class ReviewService {
 	private MovieRepository movieRepository;
 	
 	@Autowired
-	private UserRepository userRepository;
+	private UserService userService;
 	
 	
 	
@@ -52,8 +51,8 @@ public class ReviewService {
 	
 	@Transactional
 	public ReviewDTO insert(ReviewDTO dto) {
-		Movie movie = movieRepository.getOne(dto.getId());
-		User user = userRepository.getOne(dto.getUserId());
+		Movie movie = movieRepository.getOne(dto.getMovieId());
+		User user = userService.authenticated();
 		Review review = new Review(null, dto.getText(), movie, user);
 		review = repository.save(review);
 		return new ReviewDTO(review);
@@ -63,7 +62,7 @@ public class ReviewService {
 	public ReviewDTO update(Long id, ReviewDTO dto) {
 		try {
 			Review entity = repository.getOne(id);
-			copyDtoToEntity(dto, entity);
+			entity.setText(dto.getText());
 			entity = repository.save(entity);
 			return new ReviewDTO(entity);
 		} catch (EntityNotFoundException e) {
@@ -81,14 +80,6 @@ public class ReviewService {
 		}
 		catch(DataIntegrityViolationException e ) {
 			throw new DatabaseException("Integrity violation");
-			
 		}
-		
-	}
-	
-	private void copyDtoToEntity(ReviewDTO dto, Review entity) {
-		entity.setText(dto.getText());
-		entity.setMovie(movieRepository.getOne(dto.getId()));
-		entity.setUser(userRepository.getOne(dto.getUserId()));
 	}
 }
