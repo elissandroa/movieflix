@@ -10,20 +10,19 @@ MovieFlix é uma aplicação full stack web e mobile construída como tarefa do 
 A aplicação consiste em um catálogo de filmes, onde os os usuários autenticados podem postar seus comentários.
 
 ## Layout mobile
-![Mobile 1](https://github.com/elissandroa/assets/blob/main/assets/movieflix-login-iphon1.png) ![Mobile 2](https://github.com/elissandroa/assets/blob/main/assets/movieflix-iphonelogin.png)
+![Mobile 1](https://github.com/elissandroa/assets/movieflix/blob/main/assets/movieflix-login-iphon1.png) ![Mobile 2](https://github.com/elissandroa/assets/blob/main/assets/movieflix/movieflix-iphonelogin.png)
 
-![Mobile 3](https://github.com/elissandroa/assets/blob/main/assets/movieflix-iphone-listagemdefilmes.png) ![Mobile 4](https://github.com/elissandroa/assets/blob/main/assets/movieflix-iphonedetalhesdofilme.png)
+![Mobile 3](https://github.com/elissandroa/assets/blob/main/assets/movieflix/movieflix-iphone-listagemdefilmes.png) ![Mobile 4](https://github.com/elissandroa/assets/blob/main/assets/movieflix/movieflix-iphonedetalhesdofilme.png)
 
 ## Layout web
-![Web 1](https://github.com/elissandroa/assets/blob/main/assets/movieflix-weblogin.png)
 
-![Web 2](https://github.com/elissandroa/assets/blob/main/assets/movieflix-webcatalogo.png)
-
-![Web 3](https://github.com/elissandroa/assets/blob/main/assets/movieflix-webdetalhes.png)
+![Web 1](https://github.com/elissandroa/assets/blob/main/assets/movieflix/movieflix-weblogin.png)
+![Web 2](https://github.com/elissandroa/assets/blob/main/assets/movieflix/movieflix-webcatalogo.png)
+![Web 3](https://github.com/elissandroa/assets/blob/main/assets/movieflix/movieflix-webdetalhes.png)
 
 
 ## Modelo conceitual
-![Modelo Conceitual](https://github.com/elissandroa/assets/blob/main/assets/modeloconceitualmovieflix.png)
+![Modelo Conceitual](https://github.com/elissandroa/assets/blob/main/assets/movieflis/modeloconceitualmovieflix.png)
 
 # Tecnologias utilizadas
 ## Back end
