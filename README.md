@@ -19,7 +19,7 @@ A aplicação consiste em um catálogo de filmes, onde os os usuários autentica
 
 ![Web 2](https://github.com/elissandroa/assets/blob/main/assets/movieflix-webcatalogo.png)
 
-![Web 3](https://github.com/elissandroa/assets/blob/main/assets/movieflix-iphonedetalhesdofilme.png)
+![Web 3](https://github.com/elissandroa/assets/blob/main/assets/movieflix-webdetalhes.png)
 
 
 ## Modelo conceitual
