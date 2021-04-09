@@ -2,20 +2,18 @@ import ButtonExit from './ButtonExit';
 import './styles.scss';
 type Props ={
     btnexit?:string;
+    visible?:boolean;
 }
 
-let visible = true;
-
-
-const Navbar = ({ btnexit}:Props) => {
+const Navbar = ({ btnexit, visible}:Props) => {
   return (  <nav className="row bg-primary main-nav ">
         <div className="col-1">
-            <a href="test" className="nav-logo-text">
+            <a href="/" className="nav-logo-text">
             <h4>MovieFlix</h4>
             </a>
             </div >  
             
-            {visible === false && <ButtonExit text="SAIR" /> } 
+            {visible  && <ButtonExit text="SAIR" /> } 
            
         </nav>
   );
