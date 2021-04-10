@@ -1,11 +1,11 @@
 .select-genre-container{
-    width: 90%;
+    width: 1160px;
     height: 60px;
     background: #6C6C6C;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     margin-left: 97px;
-    
+    margin-right: 97px;
     margin-top: 49px;
     margin-right: 99px;
     border: solid  #6C6C6C 1px;
@@ -42,6 +42,14 @@
     margin-top: 43px;
     display:grid;
     grid-template-columns: repeat(auto-fill, 250px);
-    grid-gap: 31px 38px;
-   
- }
+    grid-gap: 31px 35px;
+}
+
+.movie-pagination-container{
+    display: flex;
+    justify-content: center;
+    height: 40px;
+    margin-top: 44px;
+    margin-bottom: 70px;
+    align-items: center;
+}

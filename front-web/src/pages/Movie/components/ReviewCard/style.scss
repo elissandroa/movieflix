@@ -1,0 +1,38 @@
+.review-star{
+    margin-left:34px;
+    display: flex;
+    align-items: center;
+}
+
+.review-user{
+    margin-left: 15px;
+ 
+}
+
+.review-box{
+    width: 1000px;
+    height: 51px;
+    margin-left: 17px;
+    margin-top: 5px;
+    background: #6C6C6C;
+    border: 1px solid #E1E1E1;
+    box-sizing: border-box;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+}  
+
+.review-text{
+    margin-left: 19px;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: justify;
+    letter-spacing: -0.015em;
+    color: #9E9E9E;
+}
+
+.user-and-star-aligment{
+    margin-top: 14px;
+}
