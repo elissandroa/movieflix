@@ -1,4 +1,5 @@
 import Navbar from "../../components/Navbar";
+import MovieCard from "./components/MovieCard";
 import './style.scss';
 
 const Home = () => {
@@ -14,6 +15,20 @@ const Home = () => {
                     <option value="Comédia">Comédia</option>
                   </select>
               </form>
+        </div>
+        <div className="movie-card-container">
+            <MovieCard />
+            <MovieCard />
+            <MovieCard />
+            <MovieCard />
+            <MovieCard />
+            <MovieCard />
+            <MovieCard />
+            <MovieCard />
+            <MovieCard />
+            <MovieCard />
+            <MovieCard />
+            <MovieCard />
         </div>
         </>
     );
