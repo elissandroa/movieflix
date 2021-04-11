@@ -1,10 +1,13 @@
+import Navbar from "../../core/components/Navbar";
 import Pagination from "../../core/components/Pagination";
 import MovieCard from "../Movie/components/MovieCard";
 import './style.scss';
 
 const Home = () => {
     return (
-       <>       
+       
+       <div className="justify-content-center">  
+        <Navbar visible = {true}/>      
         <div className="select-genre-container">
               <form className="select-genre">
                   <select className="select-genre-items">
@@ -23,10 +26,17 @@ const Home = () => {
             
         </div>
          <div className="movie-pagination-container">  
-            <Pagination />
+            <Pagination item='1' />
+            <Pagination item='2' />
+            <Pagination item='3' />
+            <Pagination item='4' />
+            <Pagination item='5' />
+            <Pagination item='6' />
+            <Pagination item='7' />
+            <Pagination item='8' />
          </div>   
 
-        </>
+        </div>
     );
 }
 

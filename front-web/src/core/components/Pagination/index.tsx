@@ -1,7 +1,12 @@
 import './styles.scss';
-const Pagination = () => {
+
+type Props = {
+    item:string;
+}
+
+const Pagination = ({ item }:Props) => {
     return (
-       <div className="movie-pagination-item">1</div>
+       <div className="movie-pagination-item">{item}</div>
     );
 }
 

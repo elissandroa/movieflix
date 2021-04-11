@@ -7,10 +7,20 @@
     padding-bottom: 17px;
     margin-left: 0;
     margin-right: 0;
- 
-}
+ }
 
 .nav-logo-text{
     color:#000000;
 }
+
+a {
+      
+    &.active{
+        font-weight: bold;
+        color:#000000;;
+    }
+    &:hover{
+        color: #000000;;
+    }
+}   
 

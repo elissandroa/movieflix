@@ -1,9 +1,11 @@
+import Navbar from '../../core/components/Navbar';
 import ReviewCard from '../Movie/components/ReviewCard';
 import './style.scss';
 
 const Movie = () => {
     return (
-       <>
+       <div justify-content-center>
+            <Navbar visible = {true}/> 
            <div className="row movie-container">
                <div className="col-6 ">
                 <div className="movie-photo-container">
@@ -45,7 +47,7 @@ const Movie = () => {
             </div> 
             <div className="space-end-page">
             </div>       
-       </>
+       </div>
     );
 }
 
