@@ -6,7 +6,7 @@ import './style.scss';
 const Home = () => {
     return (
        
-       <div className="justify-content-center">  
+       <div>  
         <Navbar visible = {true}/>      
         <div className="select-genre-container">
               <form className="select-genre">
@@ -19,6 +19,14 @@ const Home = () => {
               </form>
         </div>
         <div className="movie-card-container">
+            <MovieCard />
+            <MovieCard />
+            <MovieCard />
+            <MovieCard />
+            <MovieCard />
+            <MovieCard />
+            <MovieCard />
+            <MovieCard />
             <MovieCard />
             <MovieCard />
             <MovieCard />

@@ -4,9 +4,9 @@ import './style.scss';
 
 const Movie = () => {
     return (
-       <div justify-content-center>
+       <div className=" movie-justify-content">
             <Navbar visible = {true}/> 
-           <div className="row movie-container">
+           <div className="row movie-container" >
                <div className="col-6 ">
                 <div className="movie-photo-container">
                     <img src="https://www.themoviedb.org/t/p/original/h2kcFAIdzxdDGe3BOuG4i1ikjp0.jpg" alt="Movie" className="movie-photo-details"/>

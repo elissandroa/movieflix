@@ -1,10 +1,22 @@
 import './style.scss';
+import { useForm } from 'react-hook-form';
 import ImageLogin from '../../../core/assets/images/login.svg';
 import ButtonIcon from './component/ButtonIcon';
 import Navbar from '../../../core/components/Navbar';
 
+type FormData = {
+    email: string;
+    password: string;
+}
+
 
 const Login = () => {
+    const { register, handleSubmit } = useForm<FormData>();
+
+    const onSubmit = (data: FormData) => {
+        console.log(data);
+    }
+
     return (
         
         <>
@@ -19,21 +31,25 @@ const Login = () => {
                <div className="login-card">
                    <h1 className="login-form-title ">LOGIN</h1>
                   <div className="login-form-align">
-                   <form>
-                       <input type="email" 
+                   <form onSubmit={handleSubmit(onSubmit)}>
+                       <input 
+                       type="email" 
                        className="login-input-username form-control"
                        placeholder="Email"
-                       />
-                      <input type="password"
+                       {...register("email")} 
+                      />
+                      <input 
+                      type="password"
                        className="login-input-password form-control"
                        placeholder="Senha"
+                       {...register("password")}
                        />
+                        <div className="login-button-submit">
+                            <ButtonIcon text="logar" />
+                        </div>
                    </form>
-                   
-                </div>    
-                <div className="login-button-submit">
-                   <ButtonIcon text="logar" />
-                </div>
+              </div>    
+               
                </div> 
                
                    
