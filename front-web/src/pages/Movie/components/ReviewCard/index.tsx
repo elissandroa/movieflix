@@ -2,9 +2,10 @@ import './style.scss';
 import Estrela from '../../../../core/assets/images/estrela.png';
 
 type Props = {
-    username:string;
+    username?:string;
+    review: string;
 }
-const ReviewCard = ({username}:Props) => {
+const ReviewCard = ({username, review}:Props) => {
   
     
     return (
@@ -15,7 +16,7 @@ const ReviewCard = ({username}:Props) => {
                 </div>
             </div>
             <div className="review-box">
-                   <span className="review-text">Adorei o filme, a única coisa ruim é que acaba</span>
+                   <span className="review-text">{review}</span>
             </div>
             
         </>

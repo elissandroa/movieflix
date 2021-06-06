@@ -6,15 +6,16 @@ type Props ={
 }
 
 const Navbar = ({ btnexit, visible}:Props) => {
-  return (  <nav className="row bg-primary main-nav ">
-        <div className="col-1">
-            <a href="/" className="nav-logo-text">
-            <h4>MovieFlix</h4>
-            </a>
-            </div >  
-            
-            {visible  && <ButtonExit text="SAIR" /> } 
-           
+  return (  
+        <nav className="row bg-primary main-nav ">
+          <div className="col-2">
+              <a href="/home" className="nav-logo-text">
+              <h4>MovieFlix</h4>
+              </a>
+           </div >  
+           <div className="col-9  ">
+            {visible  && <a href="/"> <ButtonExit text="SAIR" /> </a>} 
+           </div> 
         </nav>
   );
 }
