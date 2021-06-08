@@ -1,7 +1,6 @@
 import MovieDetailCard from "./components/MovieDetailCard"
 
 
-
 const Movie = () => {
     return (
         <div>

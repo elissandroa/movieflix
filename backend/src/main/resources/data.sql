@@ -27,15 +27,15 @@ INSERT INTO TB_MOVIE (TITLE, SUB_TITLE, YEAR, IMG_URL, SYNOPSIS, GENRE_ID) VALUE
 INSERT INTO TB_MOVIE (TITLE, SUB_TITLE, YEAR, IMG_URL, SYNOPSIS, GENRE_ID) VALUES ('A Outra Face', 'Para capturá-lo, terá que se transformar em seu próprio inimigo.', 1997, 'https://www.themoviedb.org/t/p/original/mtaqzndq6KJpWBdgLmnYR3Ap2rk.jpg', 'Sean Archer (John Travolta), um agente especial do FBI, vê seu filho ser morto por balas destinadas a ele, disparadas por Castor Troy (Nicolas Cage), um terrorista psicopata. Por seis anos o agente tentou capturá-lo e, quando consegue, descobre que uma grande explosão está para acontecer em Los Angeles por obra do criminoso, que, logo depois, devido a um acidente, entra em coma profundo.', 1);
 
 
-INSERT INTO TB_REVIEW (TEXT, MOVIE_ID, USER_ID) VALUES ('Adorei o filme, a única coisa ruim é que acaba', 1,2);
+INSERT INTO TB_REVIEW (TEXT, MOVIE_ID, USER_ID) VALUES ('Adorei o filme, a única coisa ruim é que acaba', 1,1);
 INSERT INTO TB_REVIEW (TEXT, MOVIE_ID, USER_ID) VALUES ('Gal é de mais, filmaço', 1,2);
-INSERT INTO TB_REVIEW (TEXT, MOVIE_ID, USER_ID) VALUES ('Gostaria de ter visto no cinema, mas valeu a experiência', 1,2);
+INSERT INTO TB_REVIEW (TEXT, MOVIE_ID, USER_ID) VALUES ('Gostaria de ter visto no cinema, mas valeu a experiência', 1,1);
 INSERT INTO TB_REVIEW (TEXT, MOVIE_ID, USER_ID) VALUES ('Não gostei poderia ser melhor', 1,2);
-INSERT INTO TB_REVIEW (TEXT, MOVIE_ID, USER_ID) VALUES ('Será que teremos um terceiro filme?', 1,2);
-INSERT INTO TB_REVIEW (TEXT, MOVIE_ID, USER_ID) VALUES ('Meu Deus quatro horas de filme !', 2,2);
-INSERT INTO TB_REVIEW (TEXT, MOVIE_ID, USER_ID) VALUES ('Esse filme é uma viagem, muito top!', 2,2);
+INSERT INTO TB_REVIEW (TEXT, MOVIE_ID, USER_ID) VALUES ('Será que teremos um terceiro filme?', 1,1);
+INSERT INTO TB_REVIEW (TEXT, MOVIE_ID, USER_ID) VALUES ('Meu Deus quatro horas de filme !', 2,1);
+INSERT INTO TB_REVIEW (TEXT, MOVIE_ID, USER_ID) VALUES ('Esse filme é uma viagem, muito top!', 2,1);
 INSERT INTO TB_REVIEW (TEXT, MOVIE_ID, USER_ID) VALUES ('Ansioso por uma continuação', 2,2);
-INSERT INTO TB_REVIEW (TEXT, MOVIE_ID, USER_ID) VALUES ('Não tem como assisitri, muito grande', 2,2);
+INSERT INTO TB_REVIEW (TEXT, MOVIE_ID, USER_ID) VALUES ('Não tem como assisitri, muito grande', 2,1);
 INSERT INTO TB_REVIEW (TEXT, MOVIE_ID, USER_ID) VALUES ('Filme muito bom', 3,2);
 INSERT INTO TB_REVIEW (TEXT, MOVIE_ID, USER_ID) VALUES ('Ansioso por uma continuação', 3,2);
 INSERT INTO TB_REVIEW (TEXT, MOVIE_ID, USER_ID) VALUES ('Adorei o filme, a única coisa ruim é que acaba', 3,2);

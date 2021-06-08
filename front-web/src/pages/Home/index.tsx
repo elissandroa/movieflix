@@ -3,7 +3,7 @@ import Navbar from "../../core/components/Navbar";
 import Pagination from "../../core/components/Pagination";
 import { makePrivateRequest } from "../../core/utils/request";
 import MovieCard from "../Movie/components/MovieCard";
-import { Genre, MoviesResponse } from '../../core/types/Movies';
+import { Genre, MoviesResponse } from '../../core/types/Movie';
 import './style.scss';
 import { Link } from "react-router-dom";
 
@@ -32,7 +32,7 @@ const Home = () => {
             <Navbar visible={true} />
             <div className="select-genre-container">
                 <form className="select-genre">
-                    <select className="select-genre-items" value={genreId} onChange={e => setGenreId(Number(e.target.value))}>
+                    <select className="select-genre-items" value={genreId} onChange={e => setGenreId(Number(e.target.value))} autoFocus={false}>
                         {genres.map(genre => (
                             <option
                                 value={genre.id}
@@ -41,6 +41,7 @@ const Home = () => {
                         ))
                         }
                     </select>
+                 
                 </form>
                 <div className="movie-card-container">
                     {moviesReponse?.content.map(movie => (
