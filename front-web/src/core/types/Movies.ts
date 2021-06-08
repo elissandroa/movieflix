@@ -4,7 +4,7 @@ export type MoviesResponse = {
 }
 
 export type GenreResponse = {
-    content: Genre[];
+    genre: Genre[];
 }
 
 

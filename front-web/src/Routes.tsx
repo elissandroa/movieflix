@@ -9,13 +9,13 @@ const Routes = () => {
         <Router history={history} >
            <Switch>
                 <Route path="/" exact>
-                    <Login />
+                    <Home />
                 </Route>
                 <Route path="/home">
                     <Home />
                 </Route>
-                <Route path="/movie exact">
-                    <Movie />
+                <Route path="/login">
+                    <Login />
                 </Route>
                 <Route path="/movie/:movieId">
                     <Movie />

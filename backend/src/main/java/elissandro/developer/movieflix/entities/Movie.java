@@ -37,7 +37,7 @@ public class Movie implements Serializable{
 	
 	@OneToMany(cascade = CascadeType.ALL , mappedBy = "movie")	
 	private Set<Review> reviews = new HashSet<>();
-	
+			
 	public Movie() {
 	}
 

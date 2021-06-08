@@ -13,8 +13,8 @@ const Navbar = ({ btnexit, visible}:Props) => {
               <h4>MovieFlix</h4>
               </a>
            </div >  
-           <div className="col-9  ">
-            {visible  && <a href="/"> <ButtonExit text="SAIR" /> </a>} 
+           <div className="col-10">
+            {visible  && <a href="/login"> <ButtonExit text="SAIR" /> </a>} 
            </div> 
         </nav>
   );
