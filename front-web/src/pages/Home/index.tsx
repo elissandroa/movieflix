@@ -6,22 +6,26 @@ import { Genre, MoviesResponse } from '../../core/types/Movie';
 import './style.scss';
 import { Link } from "react-router-dom";
 import Pagination from "../../core/components/Pagination";
+import MovieLoader from "../Movie/components/MovieLoader";
 
 const Home = () => {
     const [moviesReponse, setMoviesResponse] = useState<MoviesResponse>();
     const [genres, setGenres] = useState<Genre[]>([]);
     const [genreId, setGenreId] = useState(1);
     const [activePage, setActivePage] = useState(0);
+    const [isLoading, setIsLoading] = useState(false);
 
 
 
     useEffect(() => {
         const params = {
             page: activePage,
-            linesPerPage:4
+            linesPerPage: 4
         }
+        setIsLoading(true);
         makePrivateRequest({ url: `/movies?genreId=${genreId}`, params })
-            .then(response => setMoviesResponse(response.data));
+            .then(response => setMoviesResponse(response.data))
+            .finally(() => setIsLoading(false));
     }, [genreId, activePage])
 
     useEffect(() => {
@@ -30,6 +34,7 @@ const Home = () => {
     }, [])
 
     return (
+
         <div className="justify-content-center ">
             <Navbar visible={true} />
             <div className="select-genre-container">
@@ -43,24 +48,29 @@ const Home = () => {
                         ))
                         }
                     </select>
-                 
+
                 </form>
+
                 <div className="movie-card-container">
-                    {moviesReponse?.content.map(movie => (
-                        <Link to={`movie/${movie.id}`} key={movie.id}>
-                            <MovieCard title={movie.title} subTitle={movie.subTitle} imgUrl={movie.imgUrl} year={movie.year} />
-                        </Link>
-                    ))}
+                    {isLoading ? <MovieLoader /> : (
+                        <>
+                            {moviesReponse?.content.map(movie => (
+                                <Link to={`movie/${movie.id}`} key={movie.id}>
+                                    <MovieCard title={movie.title} subTitle={movie.subTitle} imgUrl={movie.imgUrl} year={movie.year} />
+                                </Link>
+                            ))}
+                        </>
+                    )}
+
+
                 </div>
                 <div className="pagination-container">
-                    {moviesReponse && 
-                     <Pagination 
-                     totalPages={moviesReponse.totalPages} 
-                     activePage={activePage}
-                     onChange={page => setActivePage(page)}
-                    
-                />}
-                    
+                    {moviesReponse &&
+                        <Pagination
+                            totalPages={moviesReponse.totalPages}
+                            activePage={activePage}
+                            onChange={page => setActivePage(page)}
+                        />}
                 </div>
             </div>
         </div>

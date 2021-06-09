@@ -14,7 +14,7 @@ const Navbar = ({ btnexit, visible}:Props) => {
               </a>
            </div >  
            <div className="col-10">
-            {visible  && <a href="/"> <ButtonExit text="SAIR" /></a> } 
+            {visible  &&  <ButtonExit text="SAIR" /> } 
            </div> 
         </nav>
   );

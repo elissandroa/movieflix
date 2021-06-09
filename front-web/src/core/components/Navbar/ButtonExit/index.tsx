@@ -1,3 +1,4 @@
+import { useHistory } from 'react-router';
 import './style.scss';
 
 
@@ -11,10 +12,11 @@ type Props ={
 
 
 const ButtonExit = ({text}:Props) =>{
-    
+    const history = useHistory();
 
     const onClickExit = ()=>{
         localStorage.removeItem("authData");
+         history.replace('/login');
      } 
 
 

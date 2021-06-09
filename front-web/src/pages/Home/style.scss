@@ -8,7 +8,6 @@ body{width:100%;margin: 0 auto;min-width:800px;max-width:1600px}
 
 .movie-home-container{
     justify-content: center;
-   
 }
 .select-genre-container{
     width: 1126px;
@@ -59,4 +58,8 @@ body{width:100%;margin: 0 auto;min-width:800px;max-width:1600px}
     height: 40px;
     margin-top: 44px;
     margin-bottom: 70px;
+}
+
+.movie-loader{
+    margin-right: 2px;
 }

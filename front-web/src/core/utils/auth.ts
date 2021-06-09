@@ -8,6 +8,12 @@ type LoginResponse = {
     scope: string;
     userName: string;
     userId: number;
+    role: Roles[];
+}
+
+type Roles = {
+    id: number;
+    authority: string;
 }
 
 export const saveSessionData = (loginResponse: LoginResponse) => {

@@ -18,6 +18,7 @@ export type Movie = {
     genreId: number | string;
     reviews: Review[];
     user: User[];
+    userRole: Role[];
  }
 
 export type Review = {
@@ -31,10 +32,10 @@ export type User = {
     id: number;
     name: string;
     email: string;
-    roles: Roles[];
+    roles: Role[];
 }
 
-export type Roles = {
+export type Role = {
     id:number;
     authority: string;
 }
