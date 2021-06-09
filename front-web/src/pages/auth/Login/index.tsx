@@ -8,18 +8,18 @@ import { useState } from 'react';
 import { saveSessionData } from '../../../core/utils/auth';
 import { useHistory } from 'react-router';
 
-type FormData = {
+type FormState = {
     username: string;
     password: string;
 }
 
 
 const Login = () => {
-    const { register, handleSubmit } = useForm<FormData>();
+    const { register, handleSubmit } = useForm<FormState>();
     const [hasError, setHasError] = useState(false);
     const history = useHistory();
 
-    const onSubmit = (data: FormData) => {
+    const onSubmit = (data: FormState) => {
         makeLogin(data)
         .then(response => {
             setHasError(false);

@@ -1,10 +1,9 @@
-
-.movie-pagination-item{
+.pagination-item{
     width: 40px;
     height: 40px;
     left: 546px;
     top: 912px;
-    background: #FFC700;
+    background: #6C6C6C;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -13,4 +12,7 @@
     font-weight: bold;
     margin-left: 4px;
     margin-bottom: 25px;
+    &.active{
+        background-color: #FFC700;
+    }
  }

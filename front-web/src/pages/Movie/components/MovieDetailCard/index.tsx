@@ -1,30 +1,38 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 import Navbar from '../../../../core/components/Navbar';
 import { Movie } from '../../../../core/types/Movie';
 import { makePrivateRequest } from '../../../../core/utils/request';
 import ReviewCard from '../ReviewCard';
+import { useForm } from 'react-hook-form';
 import './style.css';
 
 type ParamsType = {
     movieId: string;
 }
 
+type FormStates = {
+    text: string;
+    movieId: number;
+}
+
 const MovieDetailCard = () => {
     const { movieId } = useParams<ParamsType>();
     const [movies, setMovies] = useState<Movie>();
-
-
-
-
-
+    const { register, handleSubmit } = useForm<FormStates>();
+    const history = useHistory();
+   
     useEffect(() => {
         makePrivateRequest({ url: `/movies/${movieId}` })
             .then(response => setMovies(response.data))
     }, [movieId]);
 
 
-
+    const onSubmit = (data: FormStates) => {
+      
+     makePrivateRequest({url: "/reviews", method: 'POST', data });
+     history.go(0);
+    }
 
     return (
         <div className=" movie-justify-content">
@@ -45,8 +53,9 @@ const MovieDetailCard = () => {
                 </div>
             </div>
             <div className="form-review-container">
-                <form action="">
-                    <input type="text" className="form-input-reviews" placeholder="Insira aqui sua avaliação" />
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <input {...register("text")} type="text" className="form-input-reviews" placeholder="Insira aqui sua avaliação" />
+                    <input {...register("movieId", {required:true})}   value={movieId} type="hidden"  />
                     <div className="button-container" >
                         <button className="button-salve-reviews">
                             SALVAR AVALIAÇÃO

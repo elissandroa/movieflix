@@ -1,26 +1,28 @@
 import { useEffect, useState } from "react";
 import Navbar from "../../core/components/Navbar";
-import Pagination from "../../core/components/Pagination";
 import { makePrivateRequest } from "../../core/utils/request";
 import MovieCard from "../Movie/components/MovieCard";
 import { Genre, MoviesResponse } from '../../core/types/Movie';
 import './style.scss';
 import { Link } from "react-router-dom";
+import Pagination from "../../core/components/Pagination";
 
 const Home = () => {
     const [moviesReponse, setMoviesResponse] = useState<MoviesResponse>();
     const [genres, setGenres] = useState<Genre[]>([]);
     const [genreId, setGenreId] = useState(1);
+    const [activePage, setActivePage] = useState(0);
+
 
 
     useEffect(() => {
         const params = {
-            page: 0,
-            linesPerPage: 8
+            page: activePage,
+            linesPerPage:4
         }
         makePrivateRequest({ url: `/movies?genreId=${genreId}`, params })
             .then(response => setMoviesResponse(response.data));
-    }, [genreId])
+    }, [genreId, activePage])
 
     useEffect(() => {
         makePrivateRequest({ url: "/genres" })
@@ -50,8 +52,15 @@ const Home = () => {
                         </Link>
                     ))}
                 </div>
-                <div className="movie-pagination-container">
-                    <Pagination item='1' />
+                <div className="pagination-container">
+                    {moviesReponse && 
+                     <Pagination 
+                     totalPages={moviesReponse.totalPages} 
+                     activePage={activePage}
+                     onChange={page => setActivePage(page)}
+                    
+                />}
+                    
                 </div>
             </div>
         </div>

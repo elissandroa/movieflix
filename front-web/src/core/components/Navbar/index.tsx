@@ -7,14 +7,14 @@ type Props ={
 
 const Navbar = ({ btnexit, visible}:Props) => {
   return (  
-        <nav className="row bg-primary main-nav ">
+        <nav className="row bg-primary main-nav">
           <div className="col-2">
               <a href="/home" className="nav-logo-text">
               <h4>MovieFlix</h4>
               </a>
            </div >  
            <div className="col-10">
-            {visible  && <a href="/login"> <ButtonExit text="SAIR" /> </a>} 
+            {visible  && <a href="/"> <ButtonExit text="SAIR" /></a> } 
            </div> 
         </nav>
   );

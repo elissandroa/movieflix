@@ -1,12 +1,28 @@
+import { generateList } from '../../utils/list';
 import './styles.scss';
 
-type Props = {
-    item:string;
-  }
 
-const Pagination = ({ item,}:Props) => {
+type Props = {
+    totalPages: number;
+    activePage: number;
+    onChange: (item: number) => void;
+}
+
+
+const Pagination = ({ totalPages, activePage, onChange }:Props)=> {
+    const items = generateList(totalPages);
+    
     return (
-       <div className="movie-pagination-item">{item}</div>
+        <>
+       {items.map(item => (
+          <div className={`pagination-item ${item === activePage ? 'active' : ''}`}
+          onClick={()=> onChange(item)}
+          key={item}
+          >
+              {item + 1}
+          </div>
+       ))}
+    </>   
     );
 }
 
