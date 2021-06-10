@@ -24,7 +24,7 @@ const BASE_URL = 'http://192.168.100.33:8080';
 axios.interceptors.response.use(function(response) {
     return response;
 }, function (error) {
-    if(error.response.status === 401 || error.response.status === 403){
+    if(error.response.status === 401){
       history.push('/login');
     }
     return Promise.reject(error);

@@ -9,7 +9,8 @@ import './style.css';
 import MovieInfoLoader from '../MovieInfoLoader';
 import MovieDetailLoader from '../MovieDetailLoader';
 import MovieReviewLoader from '../MovieReviewLoader';
-import { User } from '../../../../core/types/User';
+import MsgReview from './component/MsgReview';
+import { isAllowedByRole } from '../../../../core/utils/auth';
 
 
 type ParamsType = {
@@ -21,12 +22,14 @@ type FormStates = {
     movieId: number;
 }
 
+
+
 const MovieDetailCard = () => {
     const { movieId } = useParams<ParamsType>();
     const [movies, setMovies] = useState<Movie>();
-    const [users, setUsers] = useState<User>();
     const { register, handleSubmit } = useForm<FormStates>();
     const [isLoading, setIsloading] = useState(false);
+    const [msgForm, setMsgForm] = useState('');
     const history = useHistory();
 
     useEffect(() => {
@@ -41,15 +44,16 @@ const MovieDetailCard = () => {
 
         makePrivateRequest({ url: "/reviews", method: 'POST', data })
             .then(response => {
-                alert('Obrigado por avaliar');
+                setMsgForm('Obrigado por avaliar');
                 history.go(0);
             })
             .catch(() => {
-                alert("O comentário não pode ficar em branco.");
+                setMsgForm("O comentário não pode ficar em branco.");
             })
 
     }
 
+    
     return (
 
 
@@ -85,34 +89,37 @@ const MovieDetailCard = () => {
 
 
 
-               
+        {isAllowedByRole(['ROLE_MEMBER']) && (       
+                <>           
+                    <div className="form-review-container">
+                
 
-            <div className="form-review-container">
-           
+                        {isLoading ? <MovieDetailLoader /> : (
+                            <>
+                                <form onSubmit={handleSubmit(onSubmit)}>
+                                    <input {...register("text")} type="text" className="form-input-reviews" placeholder="Insira aqui sua avaliação" />
+                                    <input {...register("movieId", { required: true })} value={movieId} type="hidden" />
 
-                {isLoading ? <MovieDetailLoader /> : (
-                    <>
-                        <form onSubmit={handleSubmit(onSubmit)}>
-                            <input {...register("text")} type="text" className="form-input-reviews" placeholder="Insira aqui sua avaliação" />
-                            <input {...register("movieId", { required: true })} value={movieId} type="hidden" />
+                                    <div className="button-container" >
+                                        <button className="button-salve-reviews">
+                                            SALVAR AVALIAÇÃO
+                                </button>
+                                    </div>
+                                    <div className="d-flex justify-content-center mb-4">
+                                        <MsgReview msg={msgForm}/>
+                                    </div>
+                                </form>
+                                
+                                <div className="d-flex justify-content-center">
+                                </div>
+                            </>
 
-                            <div className="button-container" >
-                                <button className="button-salve-reviews">
-                                    SALVAR AVALIAÇÃO
-                        </button>
-                            </div>
-                        </form>
-                        <div className="d-flex justify-content-center">
-                        </div>
-                    </>
+                        )}
+                    </div>
 
-                )}
+                </>
 
-
-
-
-
-            </div>
+        )}
 
             <div className="reviews-container">
               {isLoading ? <MovieReviewLoader /> : (

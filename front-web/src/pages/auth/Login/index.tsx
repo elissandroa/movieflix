@@ -56,7 +56,10 @@ const Login = () => {
                        type="email" 
                        className="login-input-username form-control"
                        placeholder="Email"
-                       {...register("username" , {required:true})} 
+                       {...register("username" , 
+                       {required:"Campo obrigatório !",
+                        pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i}
+                        )}
                       />
                       <input 
                       type="password"
