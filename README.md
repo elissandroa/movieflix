@@ -6,8 +6,17 @@
 
 
 MovieFlix é uma aplicação full stack web e mobile construída como tarefa do BootCamp DevSuperior evento organizado pela [DevSuperior](https://devsuperior.com "Site da DevSuperior").
-
 A aplicação consiste em um catálogo de filmes, onde os os usuários autenticados podem postar seus comentários.
+[MovieFlix]https://movieflix-elissandro.netlify.app
+
+```bash
+Usuário com permissão de postar comentários 
+ana@gmail.com
+senha: 123456
+Usuário com permissão de visualização: 
+bob@gmail.com
+senha 123456
+````
 
 ## Layout mobile
 ![Mobile 1](https://github.com/elissandroa/assets/blob/main/assets/movieflix/movieflix-login-iphon1.png) ![Mobile 2](https://github.com/elissandroa/assets/blob/main/assets/movieflix/movieflix-iphonelogin.png)
