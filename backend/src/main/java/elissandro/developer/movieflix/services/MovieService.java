@@ -48,8 +48,7 @@ public class MovieService {
 	@Transactional
 	public MovieDTO insert(MovieDTO dto) {
 		Genre genre = genreRepository.getOne(dto.getGenreId());
-		Movie movie = new Movie(null, dto.getImgUrl(), dto.getSubTitle(), 
-				dto.getYear(),dto.getTitle() ,dto.getSynopsis(), genre);
+		Movie movie = new Movie(null, dto.getTitle(), dto.getSubTitle(), dto.getYear(), dto.getImgUrl(), dto.getSynopsis(), genre);
 		movie = repository.save(movie);
 		return new MovieDTO(movie);
 	}
