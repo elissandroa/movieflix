@@ -53,6 +53,10 @@ const MovieDetailCard = () => {
 
     }
 
+    const updateDisplaySaveReview = () => { 
+        history.replace(`/movie/${movieId}`);
+    }
+
     
     return (
 
@@ -101,7 +105,7 @@ const MovieDetailCard = () => {
                                     <input {...register("movieId", { required: true })} value={movieId} type="hidden" />
 
                                     <div className="button-container" >
-                                        <button className="button-salve-reviews">
+                                        <button className="button-salve-reviews}" onClick={updateDisplaySaveReview}>
                                             SALVAR AVALIAÇÃO
                                 </button>
                                     </div>

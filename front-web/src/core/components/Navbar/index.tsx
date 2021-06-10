@@ -1,3 +1,4 @@
+import { useHistory } from 'react-router';
 import ButtonExit from './ButtonExit';
 import './styles.scss';
 type Props ={
@@ -6,10 +7,21 @@ type Props ={
 }
 
 const Navbar = ({ btnexit, visible}:Props) => {
-  return (  
+  const history = useHistory();
+  
+  
+  
+  const mainBack = () => {
+    history.push("/");
+  }
+  
+  return ( 
+
+    
+     
         <nav className="row bg-primary main-nav">
           <div className="col-2">
-              <a href="/home" className="nav-logo-text">
+              <a href="/#"  onClick={mainBack} className="nav-logo-text">
               <h4>MovieFlix</h4>
               </a>
            </div >  
