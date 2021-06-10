@@ -20,7 +20,7 @@ const Home = () => {
     useEffect(() => {
         const params = {
             page: activePage,
-            linesPerPage: 4
+            linesPerPage: 8
         }
         setIsLoading(true);
         makePrivateRequest({ url: `/movies?genreId=${genreId}`, params })
