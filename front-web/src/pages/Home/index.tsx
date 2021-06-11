@@ -7,7 +7,6 @@ import './style.scss';
 import { Link } from "react-router-dom";
 import Pagination from "../../core/components/Pagination";
 import MovieLoader from "../Movie/components/MovieLoader";
-import { useForm } from "react-hook-form";
 
 const Home = () => {
     const [moviesReponse, setMoviesResponse] = useState<MoviesResponse>();
