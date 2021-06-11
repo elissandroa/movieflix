@@ -7,6 +7,7 @@ import './style.scss';
 import { Link } from "react-router-dom";
 import Pagination from "../../core/components/Pagination";
 import MovieLoader from "../Movie/components/MovieLoader";
+import { useForm } from "react-hook-form";
 
 const Home = () => {
     const [moviesReponse, setMoviesResponse] = useState<MoviesResponse>();
@@ -15,6 +16,17 @@ const Home = () => {
     const [activePage, setActivePage] = useState(0);
     const [isLoading, setIsLoading] = useState(false);
 
+
+    useEffect(()=> {
+        const params = {
+            page: activePage,
+            linesPerPage:12
+        }
+        setIsLoading(true);
+        makePrivateRequest({ url: `/movies?page=0&linesPerPage=12&direction=ASC&orderBy=title`, params})
+            .then(response => setMoviesResponse(response.data))
+            .finally(() => setIsLoading(false));
+    },[activePage])
 
 
     useEffect(() => {
@@ -39,7 +51,7 @@ const Home = () => {
             <Navbar visible={true} />
             <div className="select-genre-container">
                 <form className="select-genre">
-                    <select className="select-genre-items" value={genreId} onChange={e => setGenreId(Number(e.target.value))} autoFocus={false}>
+                    <select className="select-genre-items" value={genreId} onChange={e => setGenreId(Number(e.target.value))} autoFocus={true}>
                         {genres.map(genre => (
                             <option
                                 value={genre.id}

@@ -105,7 +105,7 @@ const MovieDetailCard = () => {
                                     <input {...register("movieId", { required: true })} value={movieId} type="hidden" />
 
                                     <div className="button-container" >
-                                        <button className="button-salve-reviews}" onClick={updateDisplaySaveReview}>
+                                        <button className="button-salve-reviews" onClick={updateDisplaySaveReview}>
                                             SALVAR AVALIAÇÃO
                                 </button>
                                     </div>
